@@ -198,9 +198,11 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
                 <p class="post-date">
                   <?php
                   if ( $instance['show_date'] && $instance['show_time'] ) {
-                    the_time(get_option('date_format') . ' ' . get_option('time_format'));
+                    //the_time(get_option('date_format') . ' ' . get_option('time_format'));
+                    the_time('d/m/Y' . ' ' . get_option('time_format'));
                   } elseif ( $instance['show_date'] && !$instance['show_time'] ) {
-                    the_time(get_option('date_format'));
+                    //the_time(get_option('date_format'));
+                    the_time('d/m/Y');
                   } else {
                     the_time(get_option('time_format'));
                   }
