@@ -49,8 +49,7 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
       add_action( 'deleted_post', array( &$this, 'flush_widget_cache' ) );
       add_action( 'switch_theme', array( &$this, 'flush_widget_cache' ) );
 
-      //load_plugin_textdomain('upw', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-      load_theme_textdomain('upw', get_stylesheet_directory() . '/languages');
+      load_plugin_textdomain('upw', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
     }
 
@@ -85,8 +84,7 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
       ob_start();
       extract( $args );
 
-      //$title = apply_filters( 'widget_title', $instance['title'] );
-      $title = apply_filters( 'widget_title', __('Latest', 'upw'));
+      $title = apply_filters( 'widget_title', $instance['title'] );
       $title_link = $instance['title_link'];
       $number = $instance['number'];
       $types = ($instance['types'] ? explode(',', $instance['types']) : '');
