@@ -242,11 +242,17 @@ if ( !class_exists( 'WP_Widget_Ultimate_Posts' ) ) {
                   if ($custom_field_values) {
                     echo '<p class="post-meta post-meta-'.$name.'">';
                     if (!is_array($custom_field_values)) {
-                      echo $custom_field_values;
+			if (function_exists('extract_text_by_language_markup'))
+                          echo extract_text_by_language_markup($custom_field_values);
+			else
+			  echo $custom_field_values;
                     } else {
                       $last_value = end($custom_field_values);
                       foreach ($custom_field_values as $value) {
-                        echo $value;
+			if (function_exists('extract_text_by_language_markup'))
+                          echo extract_text_by_language_markup($value);
+			else
+			  echo $value;
                         if ($value != $last_value) echo ', ';
                       }
                     }
